@@ -67,11 +67,11 @@ export const HeroSection = () => {
         </div>
         <div className="max-w-lg mx-auto">
           <h1 className=" font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide mb-6">
-            Building Engaging Web Experiences
+            Hey there, I’m Ram!{" "}
           </h1>
           <p className="text-center text-white/60 text-sm md:text-md flex flex-col">
-            <span> Specialized in React, NextJS and MERN Stack </span>
-            <span> Willing to learn new tools and technologies </span>
+            <span> Building fast, scalable, engaging web experiences. </span>
+            <span> React • Next.js • MERN</span>
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
