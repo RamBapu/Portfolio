@@ -5,7 +5,7 @@ import grainImage from "@/assets/images/grain.jpg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
-import ArrowRightUpIcon from "@/assets/icons/arrow-up-right.svg";
+import ArrowDown from "@/assets/icons/arrow-down.svg";
 
 export const HeroSection = () => {
   return (
@@ -134,7 +134,7 @@ export const HeroSection = () => {
           <a
             href="#contact"
             className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 cursor-pointer">
-            <ArrowRightUpIcon className="size-4" />
+            <ArrowDown className="size-4" />
             <span className="font-semibold">Let's connect</span>
           </a>
         </div>

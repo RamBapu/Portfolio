@@ -1,48 +1,94 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import chatifyLandingPage from "@/assets/images/chatify.png";
+import ideationLandingPage from "@/assets/images/ideation.png";
+import productifyLandingPage from "@/assets/images/productify.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowRightUpIcon from "@/assets/icons/arrow-up-right.svg";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
+import ReactIcon from "@/assets/icons/react-icon.svg";
+import MongoDBIcon from "@/assets/icons/mongodb.svg";
+import ExpressIcon from "@/assets/icons/express.svg";
+import NodeJsIcon from "@/assets/icons/node.svg";
+import SocketIcon from "@/assets/icons/socket.svg";
+import JWTIcon from "@/assets/icons/jwt.svg";
+
+import TailwindCSSIcon from "@/assets/icons/tailwindcss.svg";
+import NextJSIcon from "@/assets/icons/nextjs.svg";
+import PostgresIcon from "@/assets/icons/postgres.svg";
+import TypeScriptIcon from "@/assets/icons/typescript.svg";
+import ClerkIcon from "@/assets/icons/clerk.svg";
+import MotionIcon from "@/assets/icons/framer-motion.svg";
+
+import TanstackQueryIcon from "@/assets/icons/tanstack.svg";
+import DrizzleIcon from "@/assets/icons/drizzle.svg";
+
+import { TechIcon } from "@/components/TechIcon";
+
 const portfolioProjects = [
   {
-    company: "Chatify",
+    company: "Real time chat application",
     year: "2026",
-    title: "MERN Stack Project with Socket.io",
+    title: "Chatify",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Token-based authentication using cookies" },
+      { title: "Real-time messaging with live online status" },
+      { title: "Text & image chats with optimistic updates" },
+    ],
+    techIcons: [
+      MongoDBIcon,
+      ExpressIcon,
+      ReactIcon,
+      NodeJsIcon,
+      SocketIcon,
+      JWTIcon,
     ],
     link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
+    image: chatifyLandingPage,
+    githubLink: "https://github.com/RamBapu/chatify",
   },
   {
-    company: "Ideation",
+    company: "AI Notes app with Autocomplete",
     year: "2026",
-    title: "AI Notes App Powered with NextJS",
+    title: "Ideation",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      { title: "AI Image generation based on Notes title" },
+      { title: "Text Autocompletion by Google Gemini" },
+      { title: "Advanced text input with rich formatting" },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
-    image: lightSaasLandingPage,
+    techIcons: [
+      NextJSIcon,
+      TypeScriptIcon,
+      TailwindCSSIcon,
+      ClerkIcon,
+      MotionIcon,
+      PostgresIcon,
+    ],
+    link: "https://ideation-qgcqp24v0-rams-projects-35ff88a9.vercel.app/",
+    image: ideationLandingPage,
+    githubLink: "https://github.com/RamBapu/Ideation",
   },
   {
-    company: "Productify",
+    company: "Product Store application",
     year: "2026",
-    title: "PERN Stack Project",
+    title: "Productify",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Secure Role based Access Control (RBAC)" },
+      { title: "Scalable relational product database" },
+      { title: "Seamless constistent UI theme styling" },
+    ],
+    techIcons: [
+      PostgresIcon,
+      ExpressIcon,
+      ReactIcon,
+      NodeJsIcon,
+      TanstackQueryIcon,
+      DrizzleIcon,
     ],
     link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
+    image: productifyLandingPage,
+    githubLink: "https://github.com/RamBapu/productify",
   },
 ];
 
@@ -80,12 +126,40 @@ export const ProjectsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={project.link}>
+                  <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+                  <ul className="flex flex-row gap-2 mt-6">
+                    {project.techIcons?.map((icon) => (
+                      <li className="outline outline-2 outline-white/30 rounded-lg text-center p-1 ">
+                        <TechIcon component={icon} />
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-col md:flex-row items-center mt-8 gap-4">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl cursor-pointer ">
+                        <span>Live Demo</span>
+                        <ArrowRightUpIcon className="size-4" />
+                      </button>
+                    </a>
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer">
+                        <span>Visit GitHub</span>
+                        <ArrowRightUpIcon className="size-4" />
+                      </button>
+                    </a>
+                  </div>
+                  {/* <a href={project.link}>
                     <button className="bg-white text-gray-950 h-12 w-full md:w-auto px-6 rounded-xl font-semibold inline-flex justify-center items-center gap-2 mt-8">
                       <ArrowRightUpIcon className="size-4" />
                       <span>View Live Demo</span>
                     </button>
-                  </a>
+                  </a> */}
                 </div>
                 <div className="relative">
                   <Image
