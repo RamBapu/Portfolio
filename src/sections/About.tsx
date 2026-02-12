@@ -2,7 +2,6 @@
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
-import StarIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.png";
 import JavaScriptIcon from "@/assets/icons/js-icon.svg";
 import ReactIcon from "@/assets/icons/react-icon.svg";
@@ -11,6 +10,17 @@ import ExpressIcon from "@/assets/icons/express.svg";
 import NodeJsIcon from "@/assets/icons/node.svg";
 import TailwindCSSIcon from "@/assets/icons/tailwindcss.svg";
 import NextJSIcon from "@/assets/icons/nextjs.svg";
+import TypeScriptIcon from "@/assets/icons/typescript.svg";
+import SocketIcon from "@/assets/icons/socket.svg";
+import TanstackQueryIcon from "@/assets/icons/tanstack.svg";
+import PostgresIcon from "@/assets/icons/postgres.svg";
+import DrizzleIcon from "@/assets/icons/drizzle.svg";
+import ZustandIcon from "@/assets/icons/zustand.svg";
+import PostmanIcon from "@/assets/icons/postman.svg";
+import JWTIcon from "@/assets/icons/jwt.svg";
+import MongooseIcon from "@/assets/icons/mongoose.svg";
+import VercelIcon from "@/assets/icons/vercel.svg";
+import ViteIcon from "@/assets/icons/vite.svg";
 import MapImage from "@/assets/images/map-image.webp";
 import smileMemoji from "@/assets/images/emoji-smile.png";
 import { CardHeader } from "./CardHeader";
@@ -23,7 +33,7 @@ export interface IToolboxItem {
   icon: React.ElementType;
 }
 
-const toolboxItems: IToolboxItem[] = [
+const firstToolboxItems: IToolboxItem[] = [
   {
     title: "JavaScript",
     icon: JavaScriptIcon,
@@ -41,8 +51,20 @@ const toolboxItems: IToolboxItem[] = [
     icon: ExpressIcon,
   },
   {
+    title: "Vite",
+    icon: ViteIcon,
+  },
+  {
     title: "NodeJS",
     icon: NodeJsIcon,
+  },
+  {
+    title: "SocketIo",
+    icon: SocketIcon,
+  },
+  {
+    title: "Mongoose",
+    icon: MongooseIcon,
   },
   {
     title: "TailwindCSS",
@@ -51,6 +73,41 @@ const toolboxItems: IToolboxItem[] = [
   {
     title: "NextJS",
     icon: NextJSIcon,
+  },
+];
+
+const secondToolboxItems: IToolboxItem[] = [
+  {
+    title: "TypeScript",
+    icon: TypeScriptIcon,
+  },
+  {
+    title: "Tanstack Query",
+    icon: TanstackQueryIcon,
+  },
+  {
+    title: "Postman",
+    icon: PostmanIcon,
+  },
+  {
+    title: "Postgres",
+    icon: PostgresIcon,
+  },
+  {
+    title: "DrizzleORM",
+    icon: DrizzleIcon,
+  },
+  {
+    title: "JWT",
+    icon: JWTIcon,
+  },
+  {
+    title: "Vercel",
+    icon: VercelIcon,
+  },
+  {
+    title: "Zustand",
+    icon: ZustandIcon,
   },
 ];
 
@@ -129,12 +186,12 @@ export const AboutSection = () => {
                 className=""
               />
               <ToolboxItems
-                toolboxItems={toolboxItems}
+                toolboxItems={firstToolboxItems}
                 className=""
                 itemsWrapperClassName="animate-move-left [animation-duration:30s]"
               />
               <ToolboxItems
-                toolboxItems={toolboxItems}
+                toolboxItems={secondToolboxItems}
                 className="mt-6"
                 itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:30s]"
               />
@@ -152,13 +209,15 @@ export const AboutSection = () => {
                 {hobbies.map((item) => (
                   <motion.div
                     key={item.title}
-                    className="inline-flex items-center gap-2  px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                    className="inline-flex items-center gap-2  px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute cursor-grab active:cursor-grabbing"
                     style={{
                       left: item.left,
                       top: item.top,
                     }}
                     drag
-                    dragConstraints={constraintRef}>
+                    dragConstraints={constraintRef}
+                    whileDrag={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.03 }}>
                     <span className="font-medium text-gray-950">
                       {" "}
                       {item.title}

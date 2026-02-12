@@ -1,15 +1,16 @@
 import Image from "next/image";
 import MemojiImage from "@/assets/images/emoji-computer.png";
-import ArrowDown from "@/assets/icons/arrow-down.svg";
+import DownloadIcon from "@/assets/icons/download.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
+import ArrowRightUpIcon from "@/assets/icons/arrow-up-right.svg";
 
 export const HeroSection = () => {
   return (
     <div className="py-32 md:py-48 lg:py-56 relative z-0 overflow-x-clip">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+      <div className="absolute inset-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
           className="absolute inset-0 -z-30 opacity-5"
           style={{ backgroundImage: `url(${grainImage.src})` }}></div>
@@ -109,24 +110,33 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-lg mx-auto">
+        <div className="mx-auto">
           <h1 className=" font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide mb-6">
-            Hey there, I’m Ram!{" "}
+            Hey there <span>👋</span>, I’m{" "}
+            <span className="bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text">
+              Ram
+            </span>
+            !{" "}
           </h1>
           <p className="text-center text-white/60 text-sm md:text-md flex flex-col">
+            <span className="text-md md:text-base">
+              With 5+ years of experience{" "}
+            </span>
             <span> Building fast, scalable, engaging web experiences. </span>
             <span> React • Next.js • MERN</span>
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className=" inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-            <span className="font-semibold">Explore my work</span>
-            <ArrowDown className="size-4" />
+          <button className=" inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer">
+            <span className="font-semibold">Download Resume</span>
+            <DownloadIcon className="size-4" />
           </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12">
-            <span>👋</span>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 cursor-pointer">
+            <ArrowRightUpIcon className="size-4" />
             <span className="font-semibold">Let's connect</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>
