@@ -1,4 +1,10 @@
-export const TechIcon = ({ component }: { component: React.ElementType }) => {
+export const TechIcon = ({
+  component,
+  className,
+}: {
+  component: React.ElementType;
+  className?: string;
+}) => {
   const Component = component;
-  return <Component className="size-10" />;
+  return <Component className={className || "size-10"} />;
 };

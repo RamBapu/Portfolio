@@ -16,7 +16,12 @@
     .container {
         @apply lg:max-w-5xl
     }
+
+    .timeline-glow {
+        box-shadow: 0 0 40px color-mix(in srgb, #6ee7b7 35%, transparent), 0 0 40px color-mix(in srgb, #38bdf8 25%, transparent);
+    }
 }
+
 
 /* Scrollbar classes*/
 

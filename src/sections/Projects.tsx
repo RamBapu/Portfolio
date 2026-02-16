@@ -109,7 +109,7 @@ export const ProjectsSection = () => {
               style={{ top: `calc(64px + ${index * 40}px)` }}>
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">
-                  <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text">
+                  <div className="bg-gradient-to-r from-emerald-300 to-sky-400 inline-flex gap-2 font-bold uppercase lg:tracking-widest text-sm text-transparent bg-clip-text">
                     <span>{project.company}</span>
                     <span>&bull;</span>
                     <span>{project.year}</span>
@@ -130,7 +130,10 @@ export const ProjectsSection = () => {
                   <ul className="flex flex-row gap-2 mt-6">
                     {project.techIcons?.map((icon) => (
                       <li className="outline outline-2 outline-white/30 rounded-lg text-center p-1 ">
-                        <TechIcon component={icon} />
+                        <TechIcon
+                          component={icon}
+                          className={"size-8 md:size-10"}
+                        />
                       </li>
                     ))}
                   </ul>
