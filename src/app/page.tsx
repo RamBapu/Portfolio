@@ -6,10 +6,12 @@ import { ProjectsSection } from "@/sections/Projects";
 import { TapeSection } from "@/sections/Tape";
 import { Footer } from "@/sections/Footer";
 import { ExperienceSection } from "@/sections/Experience";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   return (
     <div>
+      <Toaster />
       <section id="home">
         <Header />
       </section>

@@ -47,7 +47,7 @@ export const ExperienceSection = () => {
         <SectionHeader
           title="Experience"
           heading="Professional Journey"
-          description="A timeline of engineeering with purpose."
+          description="A timeline of engineeering with purpose"
         />
         <div className="mt-12 md:mt-16 lg:mt-20">
           {/*Timeline */}

@@ -16,6 +16,7 @@ import {
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 interface ISubmitStatus {
   type: "success" | "error" | null;
@@ -101,12 +102,47 @@ export const ContactSection = () => {
         type: "success",
         message: "Email sent succesfully! I'll get back to you soon.",
       });
+      toast.success(
+        <div>
+          Email sent successfully!
+          <br />
+          I’ll get back to you soon.
+        </div>,
+        {
+          duration: 3000,
+          position: "bottom-center",
+          style: {
+            background: "#111827",
+            color: "#fff",
+            fontSize: "14px",
+            backdropFilter: "blur(2px)",
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+          },
+        },
+      );
     } catch (error) {
       console.error("EmailJS error:", error);
       setSubmitStatus({
         type: "error",
         message: "Error sending mail. Please try again later",
       });
+      toast.error(
+        <div>
+          Error sending mail! <br />
+          Please try again later.
+        </div>,
+        {
+          duration: 3000,
+          position: "bottom-center",
+          style: {
+            background: "#111827",
+            color: "#fff",
+            fontSize: "14px",
+            backdropFilter: "blur(2px)",
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+          },
+        },
+      );
     } finally {
       setIsLoading(false);
     }
@@ -114,44 +150,18 @@ export const ContactSection = () => {
 
   return (
     <>
-      {/* <div className="py-16 pt-12 lg:py-24 lg:pt-20">
-        <div className="container">
-          <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl text-center md:text-left relative overflow-hidden z-0">
-            <div
-              className="absolute inset-0 -z-10 opacity-5"
-              style={{ backgroundImage: `url(${grainImage.src})` }}></div>
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-              <div>
-                <h2 className="font-serif text-2xl md:text-3xl">
-                  Let's create something amazing together
-                </h2>
-                <p className="text-sm mt-2 md:text-base">
-                  Ready to bring your next project to life? Let's connect and
-                  discover how I can help you achieve your goals
-                </p>
-              </div>
-
-              <div>
-                <button className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
-                  <span className="font-semibold">Contact Me</span>
-                  <ArrowRightUpIcon className="size-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="py-16 pt-12 lg:py-24 lg:pt-20">
         <div className="container">
-          <SectionHeader
-            title="Contact Me"
-            heading="Get in touch"
-            description="Open to opportunities where I can contribute, grow, and build impactful products"
-          />
+          <div>
+            <SectionHeader
+              title="Contact Me"
+              heading="Get in touch"
+              description="Open to opportunities where I can contribute, grow, and build impactful products"
+            />
+          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 mt-8 mx-auto">
-            <div className="relative p-6 md:p-8 rounded-xl outline outline-2 outline-white/30 ">
+          <div className="grid lg:grid-cols-2 gap-12 mt-8 overflow-hidden">
+            <div className="relative z-0 p-6 md:p-8 rounded-xl inset-0 outline outline-2 -outline-offset-2 outline-white/20 ">
               <div
                 className="absolute inset-0 -z-10 opacity-5"
                 style={{
@@ -173,7 +183,7 @@ export const ContactSection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                    className="px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
                   />
                 </div>
 
@@ -191,7 +201,7 @@ export const ContactSection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                    className="px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
                   />
                 </div>
 
@@ -210,7 +220,7 @@ export const ContactSection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                    className="px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
                   />
                 </div>
 
@@ -223,16 +233,16 @@ export const ContactSection = () => {
                       {isLoading ? (
                         <>Sending</>
                       ) : (
-                        <div className="flex justify-center gap-4 items-center">
-                          Send Mail
+                        <div className="flex justify-center gap-2 items-center">
                           <Send className="w-5 h-5" />
+                          Send Mail
                         </div>
                       )}
                     </span>
                   </button>
                 </div>
 
-                {submitStatus.type && (
+                {/* {submitStatus.type && (
                   <div
                     className={`flex items-center gap-3 p-4 rounded-xl ${submitStatus.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10  border border-red-500/20 text-red-400"}`}>
                     {submitStatus.type === "success" ? (
@@ -242,29 +252,32 @@ export const ContactSection = () => {
                     )}
                     <p className="text-sm">{submitStatus.message}</p>
                   </div>
-                )}
+                )} */}
               </form>
             </div>
 
             <div className="space-y-4">
-              <div className="relative p-6 md:p-8 rounded-xl outline outline-2 outline-white/30 h-full">
+              <div className="relative p-4 md:p-8 rounded-xl inset-0 outline outline-2 -outline-offset-2 outline-white/20 h-full flex flex-col gap-2">
+                <div
+                  className="absolute inset-0 -z-10 opacity-5"
+                  style={{
+                    backgroundImage: `url(${grainImage.src})`,
+                  }}></div>
                 {contactInfo.map((item) => (
                   <Link
                     href={item.href}
                     key={item.value}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl">
+                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-sky-400/10">
                     <div className="w-12 h-12 rounded-xl flex justify-center items-center bg-[#38bdf8]/10">
                       <item.icon className="w-5 h-5 text-[#38bdf8]" />
                     </div>
-                    <div>
-                      <div className="text-sm lg:text-base text-white/50">
+                    <div className="flex flex-col gap-1">
+                      <div className="text-sm lg:text-base text-white/50 font-serif">
                         {item.label}
                       </div>
-                      <div className="text-base lg:text-xl font-serif">
-                        {item.value}
-                      </div>
+                      <div className="text-base lg:text-lg">{item.value}</div>
                     </div>
                   </Link>
                 ))}
