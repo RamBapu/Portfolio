@@ -25,7 +25,7 @@ export const Footer = () => {
           <div className="text-white/40">
             &copy; 2026. Built with ❤️ and a little bit of magic{" "}
           </div>
-          <nav className="flex flex-col md:flex-row items-center gap-8">
+          {/* <nav className="flex flex-col md:flex-row items-center gap-8">
             {footerLinks.map((link) => (
               <Link
                 href={link.href}
@@ -37,7 +37,7 @@ export const Footer = () => {
                 <ArrowRightUpIcon className="size-4" />
               </Link>
             ))}
-          </nav>
+          </nav> */}
         </div>
       </div>
     </footer>

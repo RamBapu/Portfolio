@@ -1,6 +1,5 @@
 "use client";
 
-import ArrowRightUpIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import { SectionHeader } from "@/components/SectionHeader";
 import {
@@ -8,11 +7,15 @@ import {
   Phone,
   MapPin,
   Send,
+  Github,
   AlertCircle,
   CheckCircle,
+  Code,
+  Linkedin,
 } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import Link from "next/link";
 
 interface ISubmitStatus {
   type: "success" | "error" | null;
@@ -24,7 +27,7 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "rambapu270197@gmail.com",
-    href: "mailto@rambapu270197@gmail.com",
+    href: "mailto:rambapu270197@gmail.com",
   },
   {
     icon: Phone,
@@ -37,6 +40,24 @@ const contactInfo = [
     label: "Location",
     value: "Chennai, India",
     href: "#",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "GitHub/RamBapu",
+    href: "https://github.com/RamBapu",
+  },
+  // {
+  //   icon: Code,
+  //   label: "Leetcode",
+  //   value: "https://leetcode.com/u/ram_bapu/",
+  //   href: "https://leetcode.com/u/ram_bapu/",
+  // },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "Linkedin/RamBapu",
+    href: "https://www.linkedin.com/in/ram-bapu/",
   },
 ];
 
@@ -57,11 +78,11 @@ export const ContactSection = () => {
     setIsLoading(false);
     setSubmitStatus({ type: null, message: "" });
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
     try {
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY!;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("EmailJS configuration is missing");
       }
@@ -93,7 +114,7 @@ export const ContactSection = () => {
 
   return (
     <>
-      <div className="py-16 pt-12 lg:py-24 lg:pt-20">
+      {/* <div className="py-16 pt-12 lg:py-24 lg:pt-20">
         <div className="container">
           <div className="bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-900 py-8 px-10 rounded-3xl text-center md:text-left relative overflow-hidden z-0">
             <div
@@ -119,7 +140,7 @@ export const ContactSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="py-16 pt-12 lg:py-24 lg:pt-20">
         <div className="container">
@@ -128,95 +149,127 @@ export const ContactSection = () => {
             heading="Get in touch"
             description="Open to opportunities where I can contribute, grow, and build impactful products"
           />
-        </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <div className="p-8 rounded-xl outline outline-2 outline-white/30">
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  required
-                  placeholder="John Doe"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl border border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  required
-                  placeholder="johndoe@gmail.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl border border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  required
-                  placeholder="Hey how's it going?"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  className="w-full px-4 py-3 rounded-xl border border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
-                />
-              </div>
-
-              <button
-                className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900"
-                type="submit"
-                disabled={isLoading}>
-                <span className="font-semibold">
-                  {isLoading ? (
-                    <>Sending</>
-                  ) : (
-                    <>
-                      Send Mail
-                      <Send className="w-5 h-5" />
-                    </>
-                  )}
-                </span>
-              </button>
-
-              {submitStatus.type && (
-                <div
-                  className={`flex items-center gap-3 p-4 rounded-xl ${submitStatus.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10  border border-red-500/20 text-red-400"}`}>
-                  {submitStatus.type === "success" ? (
-                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  ) : (
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                  )}
-                  <p className="text-sm">{submitStatus.message}</p>
+          <div className="grid lg:grid-cols-2 gap-12 mt-8 mx-auto">
+            <div className="relative p-6 md:p-8 rounded-xl outline outline-2 outline-white/30 ">
+              <div
+                className="absolute inset-0 -z-10 opacity-5"
+                style={{
+                  backgroundImage: `url(${grainImage.src})`,
+                }}></div>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm lg:text-base text-white/50">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    placeholder="John Doe"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                  />
                 </div>
-              )}
-            </form>
+
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm lg:text-base text-white/50">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    required
+                    placeholder="johndoe@gmail.com"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm lg:text-base text-white/50">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    required
+                    placeholder="Hey how's it going?"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full px-4 py-3 text-black rounded-xl border-[3px] border-[#6ee7b7] focus:border-[#38bdf8] focus:ring-[#38bdf8] outline-none transition-all resize-none"
+                  />
+                </div>
+
+                <div>
+                  <button
+                    className="text-black bg-gradient-to-r from-emerald-300 to-sky-400 items-center px-6 h-12 rounded-xl gap-2 w-full border border-gray-900"
+                    type="submit"
+                    disabled={isLoading}>
+                    <span className="font-semibold">
+                      {isLoading ? (
+                        <>Sending</>
+                      ) : (
+                        <div className="flex justify-center gap-4 items-center">
+                          Send Mail
+                          <Send className="w-5 h-5" />
+                        </div>
+                      )}
+                    </span>
+                  </button>
+                </div>
+
+                {submitStatus.type && (
+                  <div
+                    className={`flex items-center gap-3 p-4 rounded-xl ${submitStatus.type === "success" ? "bg-green-500/10 border border-green-500/20 text-green-700" : "bg-red-500/10  border border-red-500/20 text-red-400"}`}>
+                    {submitStatus.type === "success" ? (
+                      <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    ) : (
+                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    )}
+                    <p className="text-sm">{submitStatus.message}</p>
+                  </div>
+                )}
+              </form>
+            </div>
+
+            <div className="space-y-4">
+              <div className="relative p-6 md:p-8 rounded-xl outline outline-2 outline-white/30 h-full">
+                {contactInfo.map((item) => (
+                  <Link
+                    href={item.href}
+                    key={item.value}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-xl">
+                    <div className="w-12 h-12 rounded-xl flex justify-center items-center bg-[#38bdf8]/10">
+                      <item.icon className="w-5 h-5 text-[#38bdf8]" />
+                    </div>
+                    <div>
+                      <div className="text-sm lg:text-base text-white/50">
+                        {item.label}
+                      </div>
+                      <div className="text-base lg:text-xl font-serif">
+                        {item.value}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
