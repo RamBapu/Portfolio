@@ -28,7 +28,7 @@ const experiences = [
     company: "Tata Consultancy Services Limited",
     location: "Bangalore, India",
     description:
-      "Engineered scalable protection policies across multiple syndication channels at Legal & General (UK largest insurance provider)",
+      "Engineered scalable protection policies across multiple syndication channels at Legal & General (UK's largest insurance provider)",
     technologies: [
       "JAVA",
       "Spring Boot",

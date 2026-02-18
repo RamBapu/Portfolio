@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import MemojiImage from "@/assets/images/emoji-computer.png";
 import DownloadIcon from "@/assets/icons/download.svg";
@@ -6,6 +8,7 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
+import toast from "react-hot-toast";
 
 export const HeroSection = () => {
   return (
@@ -127,10 +130,26 @@ export const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className=" inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer">
+          <a
+            href="/resume/RamBapu_5Y_ProductDeveloper.pdf"
+            download="RamBapu_5Y_ProductDeveloper.pdf"
+            onClick={() =>
+              toast.success("Resume downloaded successfully!", {
+                duration: 3000,
+                position: "bottom-center",
+                style: {
+                  background: "#111827",
+                  color: "#fff",
+                  fontSize: "14px",
+                  backdropFilter: "blur(2px)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+                },
+              })
+            }
+            className=" inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer">
             <span className="font-semibold">Download Resume</span>
             <DownloadIcon className="size-4" />
-          </button>
+          </a>
           <a
             href="#contact"
             className="rounded-xl inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 cursor-pointer">
