@@ -8,7 +8,7 @@ const experiences = [
     company: "Lumel Technologies LLP",
     location: "Chennai, India",
     description:
-      "Building scalable data-driven web applications with complex state management, transformation workflows, and real-time integrations.",
+      "Implemented real-time multi-source data consolidation and modular transformation workflow logic into unified planning sheets",
     technologies: ["React", "TypeScript", "Node.js", "Redux", "TailwindCSS"],
     current: true,
   },
@@ -18,8 +18,8 @@ const experiences = [
     company: "Arus Info Private Limited",
     location: "Bangalore, India",
     description:
-      "Developed and maintained MERN stack applications with authentication, payment integrations, and admin dashboards.",
-    technologies: ["React", "JavaScript", "Node.js", "MySQL", "JWT", "NextJS"],
+      "Designed and developed dynamic, no-code, self-service planning interfaces with dynamic grid components and multi-destination writeback",
+    technologies: ["React", "JavaScript", "Node.js", "MySQL", "JWT", "Redux"],
     current: false,
   },
   {
@@ -28,7 +28,7 @@ const experiences = [
     company: "Tata Consultancy Services Limited",
     location: "Bangalore, India",
     description:
-      "Focused on building responsive UI components and reusable design systems.",
+      "Engineered scalable protection policies across multiple syndication channels at Legal & General (UK largest insurance provider)",
     technologies: [
       "JAVA",
       "Spring Boot",

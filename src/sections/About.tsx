@@ -59,7 +59,7 @@ const firstToolboxItems: IToolboxItem[] = [
     icon: NodeJsIcon,
   },
   {
-    title: "SocketIo",
+    title: "Socket.io",
     icon: SocketIcon,
   },
   {
