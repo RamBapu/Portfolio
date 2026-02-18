@@ -34,13 +34,13 @@ const contactInfo = [
     icon: Phone,
     label: "Mobile",
     value: "9500274460",
-    href: "#",
+    href: "tel:+919500274460",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Chennai, India",
-    href: "#",
+    href: "https://maps.app.goo.gl/xN4SnhsTL6ai2Rbo9",
   },
   {
     icon: Github,

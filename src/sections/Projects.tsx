@@ -65,7 +65,7 @@ const portfolioProjects = [
       MotionIcon,
       PostgresIcon,
     ],
-    link: "https://ideation-qgcqp24v0-rams-projects-35ff88a9.vercel.app/",
+    link: "https://ideation-notes-app.vercel.app/",
     image: ideationLandingPage,
     githubLink: "https://github.com/RamBapu/Ideation",
   },
