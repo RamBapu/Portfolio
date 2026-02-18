@@ -120,6 +120,7 @@ export const ContactSection = () => {
           },
         },
       );
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("EmailJS error:", error);
       setSubmitStatus({
