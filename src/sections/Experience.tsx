@@ -9,7 +9,14 @@ const experiences = [
     location: "Chennai, India",
     description:
       "Implemented real-time multi-source data consolidation and modular transformation workflow logic into unified planning sheets",
-    technologies: ["React", "TypeScript", "Node.js", "Redux", "TailwindCSS"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Redux",
+      "TailwindCSS",
+      "Shadcn",
+    ],
     current: true,
   },
   {

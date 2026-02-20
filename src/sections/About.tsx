@@ -21,6 +21,7 @@ import JWTIcon from "@/assets/icons/jwt.svg";
 import MongooseIcon from "@/assets/icons/mongoose.svg";
 import VercelIcon from "@/assets/icons/vercel.svg";
 import ViteIcon from "@/assets/icons/vite.svg";
+import ShadcnIcon from "@/assets/icons/shadcn.svg";
 import MapImage from "@/assets/images/map-image.webp";
 import smileMemoji from "@/assets/images/emoji-smile.png";
 import { CardHeader } from "./CardHeader";
@@ -53,6 +54,10 @@ const firstToolboxItems: IToolboxItem[] = [
   {
     title: "Vite",
     icon: ViteIcon,
+  },
+  {
+    title: "Shadcn",
+    icon: ShadcnIcon,
   },
   {
     title: "NodeJS",
