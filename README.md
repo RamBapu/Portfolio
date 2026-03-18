@@ -10,7 +10,9 @@
 > A modern, responsive **developer portfolio website** built with Next.js, showcasing projects, skills, and contact capabilities with a clean UI and smooth animations.
 
 🔗 **Live App:** https://rambapu-portfolio.vercel.app
+
 📦 **Repository:** https://github.com/RamBapu/Portfolio
+
 🚀 **Deployed on:** Vercel
 
 ---
@@ -104,12 +106,15 @@ It includes:
 
 # 📂 Project Structure
 
+```
+client
 │
 ├── public
-├── src/app # Layout and Page
-├── src/assets # Static assets
-├── src/components # UI components
-└── src/sections # Page sections
+├── src/app          # Layout and Page
+├── src/assets       # Static assets
+├── src/components   # UI components
+└── src/sections     # Page sections
+```
 
 ---
 
