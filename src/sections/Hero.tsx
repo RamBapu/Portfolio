@@ -131,8 +131,8 @@ export const HeroSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <a
-            href="/resume/RamBapu_5Y_ProductDeveloper.pdf"
-            download="RamBapu_5Y_ProductDeveloper.pdf"
+            href="/resume/RamBapu_5.5Y_Developer.pdf"
+            download="RamBapu_5.5Y_Developer.pdf"
             onClick={() =>
               toast.success("Resume downloaded successfully!", {
                 duration: 3000,
